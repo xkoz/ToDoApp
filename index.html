@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>ToDo List</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 40px;
+        padding-bottom: 40px;
+        background-color: #f5f5f5;
+      }
+
+	  .footer {
+	     max-width: 60%;
+         margin: 0 auto 20px;
+	  }
+	  
+	  .userpanel {
+		 max-width: 60%;
+         margin: 0 auto 20px;
+		 direction: rtl;
+	  }
+	  
+      .container {
+        max-width: 60%;
+        padding: 19px 29px 29px;
+        margin: 0 auto 20px;
+        background-color: #fff;
+        border: 1px solid #e5e5e5;
+        -webkit-border-radius: 5px;
+           -moz-border-radius: 5px;
+                border-radius: 5px;
+        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+           -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+                box-shadow: 0 1px 2px rgba(0,0,0,.05);
+      }
+      .form-tasks .form-tasks-heading,
+      .form-tasks .checkbox {
+        margin-bottom: 10px;
+      }
+	  
+      .form-tasks textarea {
+        font-size: 16px;
+        height: auto;
+        margin-bottom: 15px;
+        padding: 7px 9px;
+		width: 60%;
+      }
+
+    </style>
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+  <style type="text/css"></style>
+  
+  </head>
+
+  <body>
+  <div class="userpanel">
+	Hi, <strong>{{ user.nickname }}</strong>! <a href="{{ url }}">Logout</a>
+  </div>
+    <div class="container">
+      <h3 class="form-tasks-heading">Tasks</h3>
+
+	  {% for task in tasks %}
+      <p>
+		{{ task.task|escape }}<br />
+		<small><i>{{task.date}}</i></small></td>
+		
+	  </p>
+     {% endfor %}
+
+      <form class="form-tasks" action="/post" method="post">
+        <hr />
+		<textarea name="content"></textarea><br />
+        <button class="btn btn-primary" type="submit">Add task</button>
+      </form>
+
+    </div> <!-- /container -->
+   <div class="footer">
+    <img src="https://developers.google.com/appengine/images/appengine-silver-120x30.gif" 
+alt="Powered by Google App Engine" /> 
+<abbr title="Yet Another ToDo Application" class="initialism" style="margin-left:20px;">YATA</abbr> v0.1 (02.01.2013) by <a href="mailto:k1ppregel@gmail.com">Yegor Kozlovich</a>
+   </div>
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+</body></html>
